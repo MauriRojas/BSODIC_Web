@@ -1,7 +1,7 @@
 CREATE DATABASE IF NOT EXISTS BSODIC;
 
 CREATE TABLE users(
-  idUser INT NOT NULL,
+  idUser INT AUTO_INCREMENT NOT NULL,
   pass VARCHAR(50) NOT NULL,
   name VARCHAR(100) NOT NULL,
   mail VARCHAR(100) NOT NULL,
@@ -12,7 +12,7 @@ CREATE TABLE users(
 );
 
 CREATE TABLE customer(
-  idCustomer INT NOT NULL,
+  idCustomer INT AUTO_INCREMENT NOT NULL,
   idUser INT, -- It can be NULL for retro-compability reasons.
   name VARCHAR(100),
   address VARCHAR(200),
@@ -26,13 +26,13 @@ CREATE TABLE customer(
 );
 
 CREATE TABLE deviceType (
-  idDeviceType INT NOT NULL,
+  idDeviceType INT AUTO_INCREMENT NOT NULL,
   description VARCHAR(100),
   PRIMARY KEY (idDeviceType)
 );
 
 CREATE TABLE device(
-  idDevice INT NOT NULL,
+  idDevice INT AUTO_INCREMENT NOT NULL,
   idUser INT, -- It can be NULL for retro-compability reasons.
   idDeviceType INT NOT NULL,
   processor VARCHAR(100),
@@ -56,24 +56,24 @@ CREATE TABLE owns(
 );
 
 CREATE TABLE jobType(
-  idJobType INT NOT NULL,
+  idJobType INT AUTO_INCREMENT NOT NULL,
   description VARCHAR(200),
   PRIMARY KEY (idJobType)
 );
 
 CREATE TABLE billed(
-  idBilled INT NOT NULL,
+  idBilled INT AUTO_INCREMENT NOT NULL,
   description VARCHAR(50),
   PRIMARY KEY (idBilled)
 );
 
 CREATE TABLE job(
-  idJob INT NOT NULL,
+  idJob INT AUTO_INCREMENT NOT NULL,
   idCustomer INT NOT NULL,
   idDevice INT NOT NULL,
   idBilled INT NOT NULL,
   idJobType INT NOT NULL,
-  idUser INT,
+  idUser INT, -- It can be NULL for retro-compability reasons.
   description VARCHAR(1000),
   startDate DATE,
   finishDate DATE,
