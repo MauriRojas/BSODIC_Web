@@ -1,19 +1,19 @@
 CREATE DATABASE IF NOT EXISTS BSODIC;
 
-CREATE TABLE user(
+CREATE TABLE users(
   idUser INT NOT NULL,
   pass VARCHAR(50) NOT NULL,
   name VARCHAR(100) NOT NULL,
   mail VARCHAR(100) NOT NULL,
   phone VARCHAR(14),
-  balance MONEY,
+  balance DECIMAL(13,4),
   lastLogin DATE,
   PRIMARY KEY (idUser)
 );
 
 CREATE TABLE customer(
   idCustomer INT NOT NULL,
-  idUser INT, --It can be NULL for retro-compability reasons.
+  idUser INT, -- It can be NULL for retro-compability reasons.
   name VARCHAR(100),
   address VARCHAR(200),
   birthday DATE,
@@ -22,7 +22,7 @@ CREATE TABLE customer(
   additionalInfo varchar(500),
   imageURL VARCHAR(500),
   PRIMARY KEY (idCustomer),
-  FOREIGN KEY (idUser) REFERENCES user(idUser)
+  FOREIGN KEY (idUser) REFERENCES users(idUser)
 );
 
 CREATE TABLE deviceType (
@@ -33,17 +33,17 @@ CREATE TABLE deviceType (
 
 CREATE TABLE device(
   idDevice INT NOT NULL,
-  idUser INT, --It can be NULL for retro-compability reasons.
+  idUser INT, -- It can be NULL for retro-compability reasons.
   idDeviceType INT NOT NULL,
   processor VARCHAR(100),
-  storage VARCHAR(100),
+  mainStorage VARCHAR(100),
   description VARCHAR(500),
   displayCode VARCHAR(100),
   mainMemory VARCHAR(100),
   imageURL VARCHAR(500),
   name VARCHAR(200),
   PRIMARY KEY (idDevice),
-  FOREIGN KEY (idUser) REFERENCES user(idUser),
+  FOREIGN KEY (idUser) REFERENCES users(idUser),
   FOREIGN KEY (idDeviceType) REFERENCES deviceType(idDeviceType)
 );
 
@@ -77,13 +77,13 @@ CREATE TABLE job(
   description VARCHAR(1000),
   startDate DATE,
   finishDate DATE,
-  budget MONEY,
+  budget DECIMAL(13,4),
   PRIMARY KEY (idJob),
   FOREIGN KEY (idCustomer) REFERENCES customer(idCustomer),
   FOREIGN KEY (idDevice) REFERENCES device(idDevice),
   FOREIGN KEY (idBilled) REFERENCES billed(idBilled),
   FOREIGN KEY (idJobType) REFERENCES jobType(idJobType),
-  FOREIGN KEY (idUser) REFERENCES user(idUser)
+  FOREIGN KEY (idUser) REFERENCES users(idUser)
 );
 
 INSERT INTO billed (description) VALUES ('No facturado');
