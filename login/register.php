@@ -10,19 +10,20 @@
 
 <body>
   <div class="login-form">
-    <form id="login" action="register" method="post">
+    <form id="login" action="../serverside/register-account.php" method="post">
       <h1>BSOD</h1>
       <h2>Crear cuenta</h2>
       <input type="text" name="name" placeholder="nombre" required autofocus>
-      <input type="password" name="pass" placeholder="contraseña" required>
-      <input type="password" name="repeat-pass" placeholder="repetir contraseña" required>
+      <input id="pass" type="password" name="pass" placeholder="contraseña" required>
+      <input id="rpass" type="password" name="repeat-pass" placeholder="repetir contraseña" required onkeyup="checkSameInput()">
       <input type="email" name="email" placeholder="correo electrónico" required>
       <input type="email" name="repeat-email" placeholder="repetir correo electrónico" required>
       <input type="number" name="phone" placeholder="teléfono" required>
-      <input type="submit" class="submit_button" value="Crear cuenta" name="submit">
+      <input id="enviar" type="submit" class="submit_button" value="Crear cuenta" name="submit">
     </form>
   </div>
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+  <script src="../js/register.js" type="text/javascript"></script>
 </body>
 
 </html>
