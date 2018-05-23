@@ -22,7 +22,6 @@ overflow: hidden;
   box-shadow: 0 0 20px 0 rgba(0, 0, 0, 0.2), 0 5px 5px 0 rgba(0, 0, 0, 0.24);
 }
 
-
 h1 {
   font-family: 'VT323', monospace;
   color: #0e0066;
@@ -45,7 +44,6 @@ input {
   width: 250px;
   margin-top: 1em;
   font-family: 'Roboto', sans-serif;
-  font-size: .5em !important;
   color: #545454;
 }
 
@@ -55,4 +53,11 @@ input {
   background-color: #004ca6;
   color: white;
   width: 275px;
+}
+
+a {
+  margin-top: 2em !important;
+  text-decoration: none;
+  color: #0042a4;
+  font-family: 'Roboto', sans-serif;
 }
