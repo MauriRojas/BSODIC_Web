@@ -3,13 +3,14 @@
 
 html {
 height: 100%;
-background: radial-gradient(ellipse at bottom, #004ca6 0%, #090a0f 100%);
-overflow: hidden;
+background: #022044;
+overflow: scroll;
 }
 
 .login-form {
   margin: auto;
   padding: 8% 0 0;
+
 }
 
 #login {

@@ -10,15 +10,15 @@
 
 <body>
   <div class="login-form">
-    <form id="login" action="../serverside/register-account.php" method="post">
+    <form id="login" action="javascript:;" method="post" onsubmit="validateForm(this)">
       <h1>BSOD</h1>
       <h2>Crear cuenta</h2>
-      <input type="text" name="name" placeholder="nombre" required autofocus>
+      <input id="username" type="text" name="name" placeholder="nombre" required autofocus>
       <input id="pass" type="password" name="pass" placeholder="contraseña" required>
-      <input id="rpass" type="password" name="repeat-pass" placeholder="repetir contraseña" required onkeyup="checkSameInput()">
-      <input type="email" name="email" placeholder="correo electrónico" required>
-      <input type="email" name="repeat-email" placeholder="repetir correo electrónico" required>
-      <input type="number" name="phone" placeholder="teléfono" required>
+      <input id="rpass" type="password" name="repeat-pass" placeholder="repetir contraseña" required>
+      <input id="email" type="email" name="email" placeholder="correo electrónico" required>
+      <input id="remail" type="email" name="repeat-email" placeholder="repetir correo electrónico" required>
+      <input id="phone" type="number" name="phone" placeholder="teléfono" required>
       <input id="enviar" type="submit" class="submit_button" value="Crear cuenta" name="submit">
     </form>
   </div>
